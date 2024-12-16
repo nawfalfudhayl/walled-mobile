@@ -7,13 +7,14 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import Button from "./components/Button";
-import Input from "./components/Input";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import { Link } from "expo-router";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image source={require("./assets/walledLogo.png")} style={styles.logo} />
+      <Image source={require("../assets/walledLogo.png")} style={styles.logo} />
 
       <TextInput
         style={styles.input}
@@ -23,14 +24,28 @@ export default function App() {
 
       <TextInput
         style={styles.input}
+        placeholder="Fullname"
+        placeholderTextColor="#aaa"
+        secureTextEntry={true}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Phone Number"
+        placeholderTextColor="#aaa"
+        secureTextEntry={true}
+      />
+
+      <TextInput
+        style={styles.input}
         placeholder="Password"
         placeholderTextColor="#aaa"
         secureTextEntry={true}
       />
 
-      <Button />
-      <Input text="notes" />
-
+      <Button text={"Register"}/>
+      <Text style={styles.footer}>Have Account?</Text> 
+      <Link href="/" style={styles.link}>Login Here</Link>
       <StatusBar style="auto" />
     </View>
   );
@@ -65,4 +80,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#f9f9f9",
     fontSize: 16,
   },
+  footer: {
+    flexDirection: "row",
+    alignItems: "left",
+    marginTop: 10,
+    fontSize: 16
+  },
+  footerText: {
+    fontSize: 16,
+    color: "#555",
+  },
+  link: {
+    color: "#0d9488",
+    fontSize: 16,
+  }
 });
